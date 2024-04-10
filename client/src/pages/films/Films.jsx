@@ -1,7 +1,7 @@
 import { IoClose, IoArrowForward, IoArrowBack } from "react-icons/io5";
 
 import { useQuery } from "@tanstack/react-query";
-import { request, gql } from "graphql-request";
+import { request } from "graphql-request";
 import { allFilms } from "../../queries/All";
 import { useState, useContext } from "react";
 import Modal from "react-modal";
@@ -9,17 +9,7 @@ import { SearchContext } from "../../components/Search/SearchContext";
 
 Modal.setAppElement("#root");
 
-const SEARCH_FILMS = gql`
-  query SearchFilms($term: String!) {
-    allFilms(filter: { title_contains: $term }) {
-      films {
-        id
-        title
-        // other fields...
-      }
-    }
-  }
-`;
+
 
 const Films = () => {
   const baseUrl = "https://swapi-graphql.netlify.app/.netlify/functions/index";

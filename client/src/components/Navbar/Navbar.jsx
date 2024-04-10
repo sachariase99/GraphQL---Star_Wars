@@ -1,6 +1,6 @@
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { SearchContext } from "../Search/SearchContext";
-import { useContext, useRef, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 
 const StyledNavLink = styled(NavLink)`
@@ -11,13 +11,7 @@ const StyledNavLink = styled(NavLink)`
 
 const NavBar = () => {
   const { searchTerm, setSearchTerm } = useContext(SearchContext);
-  const navigate = useNavigate();
   const location = useLocation();
-  const previousLocation = useRef();
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
 
   return (
     <div className="bg-[#333] py-4 fixed top-0 left-0 right-0">
